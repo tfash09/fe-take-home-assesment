@@ -1,40 +1,3 @@
-<!-- <template>
-    <div className="min-h-screen bg-gradient-background">
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text mb-2">
-            Schools Battery Field Support
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Stay ahead of battery issues by tracking device health across schools. Quickly find where replacements are needed to keep classrooms running without interruption.
-          </p>
-        </div>
-
-      </div>
-
-  </div>
-</template>
-<script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { batteryService, type SchoolSummary } from '@/services/BatteryService';
-// import SchoolCard from '@/components/SchoolCard.vue';
-import { useRouter } from 'vue-router';
-
-const schools = ref<SchoolSummary[]>([]);
-const router = useRouter();
-
-const fetchSchools = () => {
-  schools.value = batteryService.getSchoolSummaries();
-  console.log('Fetched schools:', schools.value);
-};
-
-const viewDetails = (academyId: number) => {
-  router.push({ name: 'school-details', params: { id: academyId } });
-};
-
-onMounted(fetchSchools);
-</script> -->
-
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import Button from '@/components/ui/button/Button.vue';
@@ -48,8 +11,8 @@ import SelectContent from '@/components/ui/select/SelectContent.vue';
 import SelectItem from '@/components/ui/select/SelectItem.vue';
 import SelectTrigger from '@/components/ui/select/SelectTrigger.vue';
 import SelectValue from '@/components/ui/select/SelectValue.vue';
-import SchoolCard from '@/components/SchoolCard.vue';
-import DeviceTable from '@/components/DeviceTable.vue';
+import SchoolCard from '../components/SchoolCard.vue';
+import DeviceTable from '../components/DeviceTable.vue';
 import { batteryService } from '@/services/BatteryService';
 import { ArrowLeft, Battery, Shield, AlertTriangle, Search, Filter } from 'lucide-vue-next';
 
@@ -96,7 +59,7 @@ const totalStats = computed(() => {
             Academy {{ selectedSchool }} Details
           </h1>
           <p class="text-muted-foreground mt-2">
-            Detailed battery health analysis for all devices
+            Detailed battery health analysis for all devices within School
           </p>
         </div>
 

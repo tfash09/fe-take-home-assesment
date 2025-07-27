@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => {
   return {
     base: BASE_PATH,
     plugins: [vue(), VueDevTools()],
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './vitest.setup.ts'
+    },
     define: {
       'process.env.NODE_ENV': JSON.stringify(mode)
     },
