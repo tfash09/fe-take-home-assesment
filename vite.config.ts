@@ -25,15 +25,8 @@ export default defineConfig(({ mode }) => {
       }
     },
     server: {
-      host: true,
-      proxy: {
-        // if your API lives at http://localhost:8080/api/...
-        '/api': {
-          target: 'http://localhost:8080',
-          changeOrigin: true,
-          rewrite: (p) => p.replace(/^\/api/, '')
-        }
-      }
+      host: '::',
+      port: 5174
     }
   };
 });

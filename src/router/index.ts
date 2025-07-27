@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import NotFound from '@/views/NotFound.vue';
 
 import { env } from '@/config/env';
 const router = createRouter({
@@ -8,7 +9,8 @@ const router = createRouter({
       path: '/',
       name: 'Fe Asignment App',
       component: () => import('../views/Home.vue')
-    }
+    },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
   ]
 });
 
